@@ -12,5 +12,7 @@ class Company < ActiveRecord::Base
         sorted = years.sort
         
         Company.find_by(founding_year: sorted[0])
+
+        # self.all.min_by {|company| company.founding_year}
     end
 end

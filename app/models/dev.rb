@@ -5,6 +5,8 @@ class Dev < ActiveRecord::Base
     def received_one?(item_name)
         items = self.freebies.map {|freebie| freebie.item_name}
         items.include?(item_name)
+        # self.freebies.any {|f| f.item_name == item_name}
+        # freebies.exists?(item_name: item_name)
     end
 
     def give_away(dev, freebie)
@@ -15,6 +17,8 @@ class Dev < ActiveRecord::Base
         else
             "sorry you can't give this away"
         end
-        # binding.pry
+
+        # if self == freebie.dev
+        # freebie.update(dev_id: dev_id)
     end
 end
